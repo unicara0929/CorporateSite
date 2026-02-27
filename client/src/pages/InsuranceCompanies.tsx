@@ -26,9 +26,28 @@ export default function InsuranceCompanies() {
         {/* Content */}
         <section className="py-20 md:py-28 bg-white">
           <div className="container max-w-4xl">
-            <p className="text-[#1A1A2E]/50 text-base font-body">
-              準備中です。
-            </p>
+            <ul className="space-y-4">
+              {[
+                "三井住友海上あいおい生命保険株式会社",
+                "三井住友海上プライマリー生命保険株式会社",
+                "ネオファースト生命保険株式会社",
+                "チューリッヒ生命保険株式会社",
+                "アクサ生命保険株式会社",
+                "FWD生命保険株式会社",
+                "メットライフ生命保険株式会社",
+                "ジブラルタ生命保険株式会社",
+                "オリックス生命保険株式会社",
+                "東京海上日動あんしん生命保険株式会社",
+              ].map((company) => (
+                <li
+                  key={company}
+                  className="flex items-center text-[#1A1A2E]/80 text-base md:text-lg font-body border-b border-gray-100 pb-4"
+                >
+                  <span className="w-2 h-2 rounded-full bg-[#84CBC8] mr-4 shrink-0" />
+                  {company}
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
       </main>

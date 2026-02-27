@@ -46,7 +46,7 @@ export default function Kpi() {
                     生命保険契約 <span className="text-[#84CBC8]">1,500件</span>
                   </p>
                   <p className="text-[#1A1A2E]/50 text-sm font-body">
-                    対象期間：2025年1月1日から2025年12月31日
+                    対象期間：2026年1月1日から2026年12月31日
                   </p>
                 </div>
                 <p className="text-[#1A1A2E]/70 text-base leading-[2] font-body">
@@ -70,15 +70,15 @@ export default function Kpi() {
                     生命保険応用課程、FP技能士資格取得率 <span className="text-[#84CBC8]">75％以上</span>（1年以内）
                   </p>
                   <div className="space-y-2 text-[#1A1A2E]/60 text-sm font-body">
-                    <p>2024年10月現在 募集人15名中7名が生命保険応用課程を取得しております。</p>
-                    <p>2024年10月現在 募集人15名中13名がFP技能士を取得しております。</p>
+                    <p>2026年1月現在 募集人14名中2名が生命保険応用課程を取得しております。</p>
+                    <p>2026年1月現在 募集人14名中11名がFP技能士を取得しております。</p>
                   </div>
                 </div>
                 <p className="text-[#1A1A2E]/70 text-base leading-[2] font-body mb-4">
                   上記評価指標は、当社方針に関する取り組みとあわせて、定期的に進捗状況を確認します。
                 </p>
                 <p className="text-[#1A1A2E]/70 text-base leading-[2] font-body">
-                  現在8名 生命保険応用課程取得の目標が達成されておりません。今年度中に達成できるよう努力いたします。
+                  現在 12名 生命保険応用課程取得の目標が達成されておりません。今年度中に達成できるよう努力いたします。
                 </p>
               </div>
             </div>
