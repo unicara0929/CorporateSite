@@ -7,6 +7,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Link } from "wouter";
 
 const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308776489/JmgmcwMJDrZlHOzM.png";
 
@@ -52,13 +53,13 @@ export default function Navigation() {
       >
         <div className="container flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 relative z-10">
+          <Link href="/" className="flex items-center gap-2 relative z-10">
             <img
               src={LOGO_URL}
               alt="Unicara"
               className="h-8 w-auto"
             />
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
