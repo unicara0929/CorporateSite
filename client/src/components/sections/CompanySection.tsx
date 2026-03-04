@@ -15,7 +15,7 @@ const companyInfo = [
 
 export default function CompanySection() {
   return (
-    <section id="company" className="py-32 md:py-40 bg-[#FAFAFA]">
+    <section id="company" className="py-32 md:py-40 bg-white">
       <div className="container">
         <AnimatedSection>
           <p className="text-[#84CBC8] text-sm tracking-[0.3em] uppercase font-display font-medium mb-4">

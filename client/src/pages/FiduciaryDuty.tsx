@@ -4,6 +4,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const policies = [
   {
@@ -58,12 +59,14 @@ export default function FiduciaryDuty() {
         {/* Hero */}
         <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-[#2A2A3E]">
           <div className="container">
-            <p className="text-[#84CBC8] text-sm tracking-[0.3em] uppercase font-display font-medium mb-4">
-              Fiduciary Duty
-            </p>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight">
-              お客さま本位の業務運営方針
-            </h1>
+            <AnimatedSection>
+              <p className="text-[#84CBC8] text-sm tracking-[0.3em] uppercase font-display font-medium mb-4">
+                Fiduciary Duty
+              </p>
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight">
+                お客さま本位の業務運営方針
+              </h1>
+            </AnimatedSection>
           </div>
         </section>
 
@@ -71,24 +74,28 @@ export default function FiduciaryDuty() {
         <section className="py-20 md:py-28 bg-white">
           <div className="container max-w-4xl">
             {/* Intro */}
-            <div className="mb-16">
-              <p className="text-[#1A1A2E]/80 text-base md:text-lg leading-[2] font-body">
-                Unicara株式会社は、お客様の不安や悩みをヒアリング・把握し分析し合理的かつ効率的なコンサルティングを行い、より一層お客さまの信頼に応えます。お客さま本位の業務運営をより一層推進するため、以下の方針を定めます。
-              </p>
-            </div>
+            <AnimatedSection>
+              <div className="mb-16">
+                <p className="text-[#1A1A2E]/80 text-base md:text-lg leading-[2] font-body">
+                  Unicara株式会社は、お客様の不安や悩みをヒアリング・把握し分析し合理的かつ効率的なコンサルティングを行い、より一層お客さまの信頼に応えます。お客さま本位の業務運営をより一層推進するため、以下の方針を定めます。
+                </p>
+              </div>
+            </AnimatedSection>
 
             {/* Policy Items */}
             <div className="space-y-12">
-              {policies.map((item) => (
-                <div key={item.number} className="border-l-2 border-[#84CBC8]/30 pl-6 md:pl-8">
-                  <h3 className="text-lg md:text-xl font-display font-bold text-[#1A1A2E] mb-3">
-                    <span className="text-[#84CBC8] mr-2">{item.number}.</span>
-                    {item.title}
-                  </h3>
-                  <p className="text-[#1A1A2E]/70 text-base leading-[2] font-body">
-                    {item.description}
-                  </p>
-                </div>
+              {policies.map((item, index) => (
+                <AnimatedSection key={item.number} delay={index * 0.05}>
+                  <div className="border-l-2 border-[#84CBC8]/30 pl-6 md:pl-8">
+                    <h3 className="text-lg md:text-xl font-display font-bold text-[#1A1A2E] mb-3">
+                      <span className="text-[#84CBC8] mr-2">{item.number}.</span>
+                      {item.title}
+                    </h3>
+                    <p className="text-[#1A1A2E]/70 text-base leading-[2] font-body">
+                      {item.description}
+                    </p>
+                  </div>
+                </AnimatedSection>
               ))}
             </div>
           </div>

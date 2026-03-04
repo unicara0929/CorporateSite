@@ -12,10 +12,10 @@ import { Link } from "wouter";
 const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308776489/JmgmcwMJDrZlHOzM.png";
 
 const navItems = [
-  { label: "サービス", href: "#service" },
-  { label: "会社概要", href: "#company" },
-  { label: "お知らせ", href: "#news" },
-  { label: "お問い合わせ", href: "#contact" },
+  { label: "サービス", href: "/#service" },
+  { label: "会社概要", href: "/#company" },
+  { label: "お知らせ", href: "/#news" },
+  { label: "お問い合わせ", href: "/#contact" },
 ];
 
 export default function Navigation() {

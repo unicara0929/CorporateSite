@@ -5,10 +5,10 @@
 const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308776489/JmgmcwMJDrZlHOzM.png";
 
 const footerLinks = [
-  { label: "サービス", href: "#service" },
-  { label: "会社概要", href: "#company" },
-  { label: "お知らせ", href: "#news" },
-  { label: "お問い合わせ", href: "#contact" },
+  { label: "サービス", href: "/#service" },
+  { label: "会社概要", href: "/#company" },
+  { label: "お知らせ", href: "/#news" },
+  { label: "お問い合わせ", href: "/#contact" },
 ];
 
 export default function Footer() {
@@ -17,7 +17,7 @@ export default function Footer() {
       <div className="container">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-10 mb-12">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2">
             <img
               src={LOGO_URL}
               alt="Unicara"
@@ -83,13 +83,12 @@ export default function Footer() {
             >
               プライバシーポリシー
             </a>
-            <a
-              href="#"
-              onClick={(e) => e.preventDefault()}
-              className="text-white/20 text-xs font-display tracking-wide hover:text-white/40 transition-colors duration-300"
+            <span
+              className="text-white/10 text-xs font-display tracking-wide cursor-default"
+              title="準備中"
             >
               特定商取引法に基づく表記
-            </a>
+            </span>
           </div>
         </div>
       </div>

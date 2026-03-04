@@ -1,49 +1,63 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle, Home } from "lucide-react";
+/*
+ * Design: Kinetic Minimalism — 404 Page
+ * Brand color: #84CBC8, Charcoal: #1A1A2E
+ */
+import { motion } from "framer-motion";
 import { useLocation } from "wouter";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 export default function NotFound() {
   const [, setLocation] = useLocation();
 
-  const handleGoHome = () => {
-    setLocation("/");
-  };
-
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
-      <Card className="w-full max-w-lg mx-4 shadow-lg border-0 bg-white/80 backdrop-blur-sm">
-        <CardContent className="pt-8 pb-8 text-center">
-          <div className="flex justify-center mb-6">
-            <div className="relative">
-              <div className="absolute inset-0 bg-red-100 rounded-full animate-pulse" />
-              <AlertCircle className="relative h-16 w-16 text-red-500" />
-            </div>
-          </div>
+    <div className="min-h-screen flex flex-col">
+      <Navigation />
 
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">404</h1>
-
-          <h2 className="text-xl font-semibold text-slate-700 mb-4">
+      <main className="flex-1 flex items-center justify-center bg-[#2A2A3E]">
+        <div className="container text-center py-32 md:py-40">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-[#84CBC8] text-sm tracking-[0.3em] uppercase font-display font-medium mb-6"
+          >
             Page Not Found
-          </h2>
+          </motion.p>
 
-          <p className="text-slate-600 mb-8 leading-relaxed">
-            Sorry, the page you are looking for doesn't exist.
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-7xl md:text-9xl font-display font-bold text-white mb-6"
+          >
+            404
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 1.0 }}
+            className="text-white/50 text-base md:text-lg max-w-md mx-auto leading-relaxed font-body mb-12"
+          >
+            お探しのページは見つかりませんでした。
             <br />
-            It may have been moved or deleted.
-          </p>
+            移動または削除された可能性があります。
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button
-              onClick={handleGoHome}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
-            >
-              <Home className="w-4 h-4 mr-2" />
-              Go Home
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
+          <motion.button
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.0, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            onClick={() => setLocation("/")}
+            className="bg-[#84CBC8] hover:bg-[#6BB8B5] text-white font-display font-semibold tracking-wide px-10 py-4 text-sm rounded-none transition-all duration-300 hover:shadow-[0_8px_30px_rgba(132,203,200,0.3)]"
+          >
+            トップページへ戻る
+          </motion.button>
+        </div>
+      </main>
+
+      <Footer />
     </div>
   );
 }

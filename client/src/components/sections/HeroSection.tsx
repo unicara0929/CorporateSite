@@ -51,7 +51,7 @@ export default function HeroSection() {
           </motion.p>
 
           {/* Catchcopy - Kinetic Typography */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white leading-tight mb-8 whitespace-nowrap">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white leading-tight mb-8">
             {catchcopy.split("").map((char, i) => (
               <motion.span
                 key={i}

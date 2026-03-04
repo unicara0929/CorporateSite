@@ -4,6 +4,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const solicitationItems = [
   {
@@ -59,12 +60,14 @@ export default function SolicitationPolicy() {
         {/* Hero */}
         <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-[#2A2A3E]">
           <div className="container">
-            <p className="text-[#84CBC8] text-sm tracking-[0.3em] uppercase font-display font-medium mb-4">
-              Solicitation Policy
-            </p>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight">
-              勧誘方針
-            </h1>
+            <AnimatedSection>
+              <p className="text-[#84CBC8] text-sm tracking-[0.3em] uppercase font-display font-medium mb-4">
+                Solicitation Policy
+              </p>
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight">
+                勧誘方針
+              </h1>
+            </AnimatedSection>
           </div>
         </section>
 
@@ -72,51 +75,57 @@ export default function SolicitationPolicy() {
         <section className="py-20 md:py-28 bg-white">
           <div className="container max-w-4xl">
             {/* 基本方針 */}
-            <div className="mb-16">
-              <h2 className="text-xl md:text-2xl font-display font-bold text-[#1A1A2E] mb-6">
-                基本方針
-              </h2>
-              <p className="text-[#1A1A2E]/80 text-base md:text-lg leading-[2] font-body">
-                Unicara株式会社は、「金融サービスの提供及び利用環境の整備等に関する法律」、「保険業法」、その他関係諸法令・諸規則等を遵守し、適切に体制を整備するとともに、次の方針に基づき、適正な勧誘を行います。
-              </p>
-            </div>
+            <AnimatedSection>
+              <div className="mb-16">
+                <h2 className="text-xl md:text-2xl font-display font-bold text-[#1A1A2E] mb-6">
+                  基本方針
+                </h2>
+                <p className="text-[#1A1A2E]/80 text-base md:text-lg leading-[2] font-body">
+                  Unicara株式会社は、「金融サービスの提供及び利用環境の整備等に関する法律」、「保険業法」、その他関係諸法令・諸規則等を遵守し、適切に体制を整備するとともに、次の方針に基づき、適正な勧誘を行います。
+                </p>
+              </div>
+            </AnimatedSection>
 
             {/* 適切な勧誘・提案について */}
-            <div className="mb-20">
-              <h2 className="text-xl md:text-2xl font-display font-bold text-[#1A1A2E] mb-8">
-                適切な勧誘・提案について
-              </h2>
-              <div className="space-y-10">
-                {solicitationItems.map((item) => (
-                  <div key={item.number} className="border-l-2 border-[#84CBC8]/30 pl-6 md:pl-8">
-                    <p className="text-[#1A1A2E]/70 text-base leading-[2] font-body">
-                      <span className="text-[#84CBC8] font-display font-bold mr-2">{item.number}.</span>
-                      {item.text}
-                    </p>
-                  </div>
-                ))}
+            <AnimatedSection>
+              <div className="mb-20">
+                <h2 className="text-xl md:text-2xl font-display font-bold text-[#1A1A2E] mb-8">
+                  適切な勧誘・提案について
+                </h2>
+                <div className="space-y-10">
+                  {solicitationItems.map((item) => (
+                    <div key={item.number} className="border-l-2 border-[#84CBC8]/30 pl-6 md:pl-8">
+                      <p className="text-[#1A1A2E]/70 text-base leading-[2] font-body">
+                        <span className="text-[#84CBC8] font-display font-bold mr-2">{item.number}.</span>
+                        {item.text}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* 個人情報の保護について */}
-            <div>
-              <h2 className="text-xl md:text-2xl font-display font-bold text-[#1A1A2E] mb-6">
-                個人情報の保護について
-              </h2>
-              <p className="text-[#1A1A2E]/80 text-base md:text-lg leading-[2] font-body mb-8">
-                Unicara株式会社は、個人情報を適正に取り扱うことが社会的責務であり重要であると認識し、「個人情報の保護に関する法律」（以下「個人情報保護法」といいます。）、「行政手続における特定の個人を識別するための番号の利用等に関する法律」その他の関係法令、「個人情報の保護に関する法律についてのガイドライン」、「金融分野における個人情報保護に関するガイドライン」、「特定個人情報の適正な取扱いに関するガイドライン」その他のガイドライン等を遵守して、個人情報の保護に努めてまいります。
-              </p>
-              <div className="space-y-10">
-                {privacyItems.map((item) => (
-                  <div key={item.number} className="border-l-2 border-[#84CBC8]/30 pl-6 md:pl-8">
-                    <p className="text-[#1A1A2E]/70 text-base leading-[2] font-body">
-                      <span className="text-[#84CBC8] font-display font-bold mr-2">{item.number}.</span>
-                      {item.text}
-                    </p>
-                  </div>
-                ))}
+            <AnimatedSection>
+              <div>
+                <h2 className="text-xl md:text-2xl font-display font-bold text-[#1A1A2E] mb-6">
+                  個人情報の保護について
+                </h2>
+                <p className="text-[#1A1A2E]/80 text-base md:text-lg leading-[2] font-body mb-8">
+                  Unicara株式会社は、個人情報を適正に取り扱うことが社会的責務であり重要であると認識し、「個人情報の保護に関する法律」（以下「個人情報保護法」といいます。）、「行政手続における特定の個人を識別するための番号の利用等に関する法律」その他の関係法令、「個人情報の保護に関する法律についてのガイドライン」、「金融分野における個人情報保護に関するガイドライン」、「特定個人情報の適正な取扱いに関するガイドライン」その他のガイドライン等を遵守して、個人情報の保護に努めてまいります。
+                </p>
+                <div className="space-y-10">
+                  {privacyItems.map((item) => (
+                    <div key={item.number} className="border-l-2 border-[#84CBC8]/30 pl-6 md:pl-8">
+                      <p className="text-[#1A1A2E]/70 text-base leading-[2] font-body">
+                        <span className="text-[#84CBC8] font-display font-bold mr-2">{item.number}.</span>
+                        {item.text}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            </AnimatedSection>
           </div>
         </section>
       </main>

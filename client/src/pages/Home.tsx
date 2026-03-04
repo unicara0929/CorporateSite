@@ -25,7 +25,9 @@ export default function Home() {
         <ServiceSection />
         <SectionDivider />
         <CompanySection />
+        <SectionDivider />
         <NewsSection />
+        <SectionDivider />
         <ContactSection />
       </main>
       <Footer />
