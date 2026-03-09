@@ -25,42 +25,38 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-center container">
-        <div className="max-w-4xl">
+        <div className="max-w-5xl">
           {/* Tagline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[#84CBC8] text-sm md:text-base tracking-[0.3em] uppercase font-display font-medium mb-6"
+            className="text-[#84CBC8] text-sm md:text-base tracking-[0.3em] uppercase font-display font-medium mb-8"
           >
-            Total Life Support
+            Our Mission
           </motion.p>
 
-          {/* Catchcopy */}
+          {/* Mission — large display */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.0, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-8"
+            transition={{ delay: 1.0, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold text-white leading-[1.15] tracking-wide mb-10"
           >
-            夢を見つけ、叶える
+            最高の選択を、
             <br />
-            ライフサポートカンパニー
+            <span className="text-[#84CBC8]">大切なひとに</span>
           </motion.h1>
 
-          {/* Mission statement */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
+          {/* Catchcopy as subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.8, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-10 flex items-center gap-4"
+            transition={{ delay: 2.0, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+            className="text-white/70 text-base md:text-lg lg:text-xl tracking-[0.1em] font-display font-medium"
           >
-            <div className="w-8 h-[1px] bg-[#84CBC8]/60" />
-            <p className="text-white/50 text-xs md:text-sm tracking-[0.15em] font-display">
-              Mission —{" "}
-              <span className="text-white/80 font-medium">最高の選択を、大切なひとに</span>
-            </p>
-          </motion.div>
+            夢を見つけ、叶えるライフサポートカンパニー
+          </motion.p>
         </div>
       </div>
 
