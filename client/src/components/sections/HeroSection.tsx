@@ -25,41 +25,38 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-center container">
-        <div className="max-w-4xl">
+        <div className="max-w-5xl">
           {/* Tagline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[#84CBC8] text-sm md:text-base tracking-[0.3em] uppercase font-display font-medium mb-6"
+            className="text-[#84CBC8] text-sm md:text-base tracking-[0.3em] uppercase font-display font-medium mb-8"
           >
-            Total Life Support
+            Our Mission
           </motion.p>
 
-          {/* Sub text */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2.2, duration: 1.0 }}
-            className="text-white/70 text-base md:text-lg max-w-xl leading-relaxed font-body"
-          >
-            Unicaraは、あなたが「自分で選び、自分で決め、自分の人生をつくれる力」を
-            取り戻すためのパートナーです。
-          </motion.p>
-
-          {/* Mission statement */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
+          {/* Mission — large display */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.8, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-10 flex items-center gap-4"
+            transition={{ delay: 1.0, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold text-white leading-[1.15] tracking-wide mb-10"
           >
-            <div className="w-8 h-[1px] bg-[#84CBC8]/60" />
-            <p className="text-white/50 text-xs md:text-sm tracking-[0.15em] font-display">
-              Mission —{" "}
-              <span className="text-white/80 font-medium">最高の選択を、大切なひとに</span>
-            </p>
-          </motion.div>
+            最高の選択を、
+            <br />
+            <span className="text-[#84CBC8]">大切なひとに</span>
+          </motion.h1>
+
+          {/* Catchcopy as subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2.0, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+            className="text-white/70 text-base md:text-lg lg:text-xl tracking-[0.1em] font-display font-medium"
+          >
+            夢を見つけ、叶えるライフサポートカンパニー
+          </motion.p>
         </div>
       </div>
 
