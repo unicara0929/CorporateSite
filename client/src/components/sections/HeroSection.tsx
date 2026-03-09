@@ -9,20 +9,6 @@ import { ChevronDown } from "lucide-react";
 
 const HERO_BG = "https://private-us-east-1.manuscdn.com/sessionFile/9ODQpPT3t16XPjQPVmOL9c/sandbox/NXvLe0JDzNCNIDLm6adW74-img-1_1771641571000_na1fn_aGVyby1iZw.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvOU9EUXBQVDN0MTZYUGpRUFZtT0w5Yy9zYW5kYm94L05YdkxlMEpEek5DTklETG02YWRXNzQtaW1nLTFfMTc3MTY0MTU3MTAwMF9uYTFmbl9hR1Z5YnkxaVp3LmpwZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=vhuzD~9Pt9Q4GNNiMQIPCzIHU8otvmYJu5u2-YzHuVAp1Al4iG10NFn0iCzJ0Zl9AW63HWH8pydfvAI5iVmHFgqYFuV~nr42s2B-JRUTVx56HUcIZlRP2m3-HEO~NogjFsaSgO23pGf873UkWTfsH9iAlKJevU7ypzSj3JVE~9hfCz-IPVzznKjAO8-~umV6S32sljpIYwsEGGVH9ZLtu8Uy57ipPa4M9l8LaRIbrauRvtcZ4Bj82RKka6WmQhtQoZWtjXVtWCVG-Dv4ntEKGBFTxr4LsdceNbzpCzrn-BxIaxBaxYpm5DOkAZTNMQbtjyZMRqSAZ8CpedBllfqUlg__";
 
-const catchcopy = "選べる人生を、ともにつくる。";
-
-const charVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 1.0 + i * 0.06,
-      duration: 0.6,
-      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
-    },
-  }),
-};
 
 export default function HeroSection() {
   return (
@@ -49,22 +35,6 @@ export default function HeroSection() {
           >
             Total Life Support
           </motion.p>
-
-          {/* Catchcopy - Kinetic Typography */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white leading-tight mb-8 whitespace-nowrap">
-            {catchcopy.split("").map((char, i) => (
-              <motion.span
-                key={i}
-                custom={i}
-                variants={charVariants}
-                initial="hidden"
-                animate="visible"
-                className={char === "、" || char === "。" ? "inline" : "inline-block"}
-              >
-                {char === " " ? "\u00A0" : char}
-              </motion.span>
-            ))}
-          </h1>
 
           {/* Sub text */}
           <motion.p

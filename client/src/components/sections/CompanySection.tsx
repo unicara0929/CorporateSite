@@ -10,7 +10,6 @@ const companyInfo = [
   { label: "設立", value: "2025年9月" },
   { label: "代表取締役", value: "竹田 晴哉" },
   { label: "所在地", value: "愛知県名古屋市中区栄四丁目12番26号 栄CDビル6F" },
-  { label: "事業内容", value: "ライフプランニング事業、保険代理店事業、ファイナンシャルコンサルティング事業" },
 ];
 
 export default function CompanySection() {
