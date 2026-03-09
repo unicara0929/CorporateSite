@@ -76,6 +76,20 @@ export default function HeroSection() {
             Unicaraは、あなたが「自分で選び、自分で決め、自分の人生をつくれる力」を
             取り戻すためのパートナーです。
           </motion.p>
+
+          {/* Mission statement */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2.8, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-10 flex items-center gap-4"
+          >
+            <div className="w-8 h-[1px] bg-[#84CBC8]/60" />
+            <p className="text-white/50 text-xs md:text-sm tracking-[0.15em] font-display">
+              Mission —{" "}
+              <span className="text-white/80 font-medium">最高の選択を、大切なひとに</span>
+            </p>
+          </motion.div>
         </div>
       </div>
 
@@ -83,7 +97,7 @@ export default function HeroSection() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2.8, duration: 0.8 }}
+        transition={{ delay: 3.4, duration: 0.8 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
       >
         <span className="text-white/50 text-xs tracking-[0.2em] uppercase font-display">Scroll</span>

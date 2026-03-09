@@ -6,7 +6,7 @@
  */
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/sections/HeroSection";
-
+import MissionSection from "@/components/sections/MissionSection";
 import ServiceSection from "@/components/sections/ServiceSection";
 import CompanySection from "@/components/sections/CompanySection";
 import NewsSection from "@/components/sections/NewsSection";
@@ -21,6 +21,8 @@ export default function Home() {
       <Navigation />
       <main>
         <HeroSection />
+        <SectionDivider />
+        <MissionSection />
         <SectionDivider />
         <ServiceSection />
         <SectionDivider />
