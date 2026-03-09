@@ -47,7 +47,7 @@ export default function Navigation() {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-white/90 backdrop-blur-xl shadow-[0_1px_0_rgba(132,203,200,0.15)]"
+            ? "bg-white/95 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
             : "bg-transparent"
         }`}
       >
@@ -57,12 +57,12 @@ export default function Navigation() {
             <img
               src={LOGO_URL}
               alt="Unicara"
-              className="h-8 w-auto"
+              className="h-10 w-auto"
             />
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-10">
             {navItems.map((item) => (
               <a
                 key={item.href}

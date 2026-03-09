@@ -34,7 +34,7 @@ export default function CompanySection() {
                   index < companyInfo.length - 1 ? "border-b border-gray-200" : ""
                 }`}
               >
-                <dt className="text-[#1A1A2E]/50 text-sm font-display tracking-wide">
+                <dt className="text-[#1A1A2E]/60 text-sm font-display font-medium tracking-wide">
                   {item.label}
                 </dt>
                 <dd className="text-[#1A1A2E] text-sm md:text-base font-body leading-relaxed">

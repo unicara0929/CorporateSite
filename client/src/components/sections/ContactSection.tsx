@@ -21,7 +21,7 @@ export default function ContactSection() {
             alt=""
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-[#1A1A2E]/50" />
+          <div className="absolute inset-0 bg-[#1A1A2E]/60" />
         </div>
 
         <div className="container relative z-10 text-center">
@@ -54,9 +54,9 @@ export default function ContactSection() {
             <div className="flex items-center justify-center gap-4">
               <MapPin className="text-[#84CBC8] flex-shrink-0" size={18} strokeWidth={1.5} />
               <div className="flex items-center gap-3">
-                <p className="text-white/40 text-xs tracking-[0.2em] uppercase font-display">Address</p>
-                <span className="text-white/20">|</span>
-                <p className="text-white/70 text-sm font-body">
+                <p className="text-white/50 text-xs tracking-[0.2em] uppercase font-display">Address</p>
+                <span className="text-white/30">|</span>
+                <p className="text-white/80 text-sm font-body">
                   愛知県名古屋市中区栄四丁目12番26号 栄CDビル6F
                 </p>
               </div>

@@ -35,7 +35,7 @@ export default function CultureSection() {
             alt=""
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-[#0D1B2A]/70" />
+          <div className="absolute inset-0 bg-[#1A1A2E]/75" />
         </div>
 
         <div className="container relative z-10">
@@ -60,7 +60,7 @@ export default function CultureSection() {
                   <h3 className="text-xl md:text-2xl font-display font-bold text-white mb-4">
                     {point.title}
                   </h3>
-                  <p className="text-white/50 text-sm md:text-base leading-[1.9] font-body">
+                  <p className="text-white/60 text-sm md:text-base leading-[1.9] font-body">
                     {point.description}
                   </p>
                 </div>
