@@ -36,16 +36,17 @@ export default function HeroSection() {
             Total Life Support
           </motion.p>
 
-          {/* Sub text */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2.2, duration: 1.0 }}
-            className="text-white/70 text-base md:text-lg max-w-xl leading-relaxed font-body"
+          {/* Catchcopy */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.0, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-8"
           >
-            Unicaraは、あなたが「自分で選び、自分で決め、自分の人生をつくれる力」を
-            取り戻すためのパートナーです。
-          </motion.p>
+            夢を見つけ、叶える
+            <br />
+            ライフサポートカンパニー
+          </motion.h1>
 
           {/* Mission statement */}
           <motion.div
