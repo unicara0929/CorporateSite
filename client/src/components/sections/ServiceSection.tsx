@@ -215,9 +215,7 @@ export default function ServiceSection() {
             ライフプランニングサービス
           </h2>
           <p className="text-[#1A1A2E]/60 text-base md:text-lg max-w-3xl leading-relaxed font-body">
-            Unicaraは、単なる金融商品の提案ではなく、あなたの価値観・想い・状況に寄り添った
-            「最高の選択」を共に創るライフプランニングサービスを提供します。
-            人生のあらゆるステージに対応する幅広い商品・サービスで、あなたの未来をサポートします。
+            Unicaraは、単なる金融商品の提案ではなく、あなたの価値観・想い・状況に寄り添った「最高の選択」を共に創るライフプランニングサービスを提供します。人生のあらゆるステージに対応する幅広い商品・サービスで、あなたの未来をサポートします。
           </p>
         </AnimatedSection>
 
