@@ -23,7 +23,7 @@ export default function SectionDivider({ variant = "light" }: SectionDividerProp
         initial={{ scaleX: 0 }}
         animate={isVisible ? { scaleX: 1 } : { scaleX: 0 }}
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
-        className="w-16 h-[2px] bg-[#84CBC8] origin-left"
+        className="w-24 h-[2px] bg-[#84CBC8] origin-left"
       />
     </div>
   );

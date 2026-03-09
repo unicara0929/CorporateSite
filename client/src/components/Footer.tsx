@@ -13,7 +13,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1E2A3A] py-16">
+    <footer className="bg-[#1A1A2E] pt-16 pb-10">
       <div className="container">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-10 mb-12">
           {/* Logo */}
@@ -21,12 +21,12 @@ export default function Footer() {
             <img
               src={LOGO_URL}
               alt="Unicara"
-              className="h-6 w-auto opacity-80"
+              className="h-8 w-auto"
             />
           </a>
 
           {/* Tagline */}
-          <p className="text-white/30 text-xs font-display tracking-[0.15em] hidden md:block">
+          <p className="text-white/50 text-xs font-display tracking-[0.12em] hidden md:block">
             正しさを創り、生き方を誇れる文化を
           </p>
 
@@ -36,7 +36,7 @@ export default function Footer() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-white/40 text-xs tracking-wide font-display hover:text-[#84CBC8] transition-colors duration-300"
+                className="text-white/60 text-xs tracking-wide font-display hover:text-[#84CBC8] transition-colors duration-300"
               >
                 {link.label}
               </a>
@@ -44,53 +44,54 @@ export default function Footer() {
           </nav>
         </div>
 
-        {/* Divider */}
-        <div className="w-full h-px bg-white/5 mb-8" />
-
-        {/* Bottom */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <p className="text-white/20 text-xs font-display tracking-wide">
-            &copy; {new Date().getFullYear()} Unicara Inc. All rights reserved.
-          </p>
-          <div className="flex flex-wrap gap-4 md:gap-6">
+        {/* Compliance Links */}
+        <div className="border-t border-white/10 pt-8 mb-8">
+          <div className="flex flex-wrap gap-x-6 gap-y-3">
             <a
               href="/fiduciary-duty"
-              className="text-white/20 text-xs font-display tracking-wide hover:text-white/40 transition-colors duration-300"
+              className="text-white/50 text-xs font-display tracking-wide hover:text-white/80 transition-colors duration-300"
             >
               お客さま本位の業務運営方針
             </a>
             <a
               href="/kpi"
-              className="text-white/20 text-xs font-display tracking-wide hover:text-white/40 transition-colors duration-300"
+              className="text-white/50 text-xs font-display tracking-wide hover:text-white/80 transition-colors duration-300"
             >
               KPI評価指標
             </a>
             <a
               href="/insurance-companies"
-              className="text-white/20 text-xs font-display tracking-wide hover:text-white/40 transition-colors duration-300"
+              className="text-white/50 text-xs font-display tracking-wide hover:text-white/80 transition-colors duration-300"
             >
               取扱保険会社一覧
             </a>
             <a
               href="/solicitation-policy"
-              className="text-white/20 text-xs font-display tracking-wide hover:text-white/40 transition-colors duration-300"
+              className="text-white/50 text-xs font-display tracking-wide hover:text-white/80 transition-colors duration-300"
             >
               勧誘方針
             </a>
             <a
               href="/privacy-policy"
-              className="text-white/20 text-xs font-display tracking-wide hover:text-white/40 transition-colors duration-300"
+              className="text-white/50 text-xs font-display tracking-wide hover:text-white/80 transition-colors duration-300"
             >
               プライバシーポリシー
             </a>
             <a
               href="#"
               onClick={(e) => e.preventDefault()}
-              className="text-white/20 text-xs font-display tracking-wide hover:text-white/40 transition-colors duration-300"
+              className="text-white/50 text-xs font-display tracking-wide hover:text-white/80 transition-colors duration-300"
             >
               特定商取引法に基づく表記
             </a>
           </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="border-t border-white/10 pt-6">
+          <p className="text-white/40 text-xs font-display tracking-wide">
+            &copy; {new Date().getFullYear()} Unicara Inc. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
