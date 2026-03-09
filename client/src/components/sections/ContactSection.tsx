@@ -30,20 +30,18 @@ export default function ContactSection() {
               Contact Us
             </p>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-6">
-              あなたの「最高の選択」を、
-              <br className="hidden sm:block" />
-              一緒に見つけませんか？
+              お問い合わせ
             </h2>
             <p className="text-white/60 text-base md:text-lg max-w-xl mx-auto leading-relaxed font-body mb-12">
-              まずは気軽にお話しましょう。
-              あなたの想いをお聴かせください。
+              サービスに関するご質問・ご相談など、
+              お気軽にお問い合わせください。
             </p>
             <Button
               size="lg"
               className="bg-[#84CBC8] hover:bg-[#6BB8B5] text-white font-display font-semibold tracking-wide px-10 py-6 text-base rounded-none transition-all duration-300 hover:shadow-[0_8px_30px_rgba(132,203,200,0.3)]"
               onClick={() => toast("お問い合わせ機能は近日公開予定です")}
             >
-              無料相談を予約する
+              お問い合わせはこちら
             </Button>
           </AnimatedSection>
         </div>
