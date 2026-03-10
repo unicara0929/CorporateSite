@@ -25,11 +25,6 @@ export default function Footer() {
             />
           </a>
 
-          {/* Tagline */}
-          <p className="text-white/50 text-xs font-display tracking-[0.12em] hidden md:block">
-            正しさを創り、生き方を誇れる文化を
-          </p>
-
           {/* Links */}
           <nav className="flex flex-wrap gap-6 md:gap-8">
             {footerLinks.map((link) => (
