@@ -43,7 +43,7 @@ export default function HeroSection() {
             transition={{ delay: 1.0, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold text-white leading-[1.15] tracking-wide mb-10"
           >
-            最高の選択を、<span className="text-[#84CBC8]">大切なひとに</span>
+            最高の選択を、<br /><span className="text-[#84CBC8]">大切なひとに</span>
           </motion.h1>
 
           {/* Catchcopy as subtitle */}
