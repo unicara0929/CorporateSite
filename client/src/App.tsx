@@ -6,6 +6,7 @@ import Kpi from "@/pages/Kpi";
 import InsuranceCompanies from "@/pages/InsuranceCompanies";
 import SolicitationPolicy from "@/pages/SolicitationPolicy";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import Contact from "@/pages/Contact";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -21,6 +22,7 @@ function Router() {
       <Route path={"/insurance-companies"} component={InsuranceCompanies} />
       <Route path={"/solicitation-policy"} component={SolicitationPolicy} />
       <Route path={"/privacy-policy"} component={PrivacyPolicy} />
+      <Route path={"/contact"} component={Contact} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

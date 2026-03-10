@@ -35,13 +35,14 @@ export default function ContactSection() {
               サービスに関するご質問・ご相談など、
               お気軽にお問い合わせください。
             </p>
-            <Button
-              size="lg"
-              className="bg-[#84CBC8] hover:bg-[#6BB8B5] text-white font-display font-semibold tracking-wide px-10 py-6 text-base rounded-none transition-all duration-300 hover:shadow-[0_8px_30px_rgba(132,203,200,0.3)]"
-              onClick={() => toast("お問い合わせ機能は近日公開予定です")}
-            >
-              お問い合わせはこちら
-            </Button>
+            <a href="/contact">
+              <Button
+                size="lg"
+                className="bg-[#84CBC8] hover:bg-[#6BB8B5] text-white font-display font-semibold tracking-wide px-10 py-6 text-base rounded-none transition-all duration-300 hover:shadow-[0_8px_30px_rgba(132,203,200,0.3)]"
+              >
+                お問い合わせはこちら
+              </Button>
+            </a>
           </AnimatedSection>
         </div>
       </div>
