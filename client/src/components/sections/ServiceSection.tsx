@@ -1,6 +1,7 @@
 /*
  * Design: Kinetic Minimalism — Service Section
  * ライフプランニングサービスの紹介 + Unicaraがサポートできる領域
+ * 4カテゴリのタブ切替UI + インフォグラフィック風アイコン
  * Brand color: #84CBC8, Charcoal: #1A1A2E
  */
 import { useState } from "react";
@@ -18,13 +19,6 @@ import {
   Key,
   Briefcase,
   Users,
-  GraduationCap,
-  Truck,
-  Gem,
-  PiggyBank,
-  CircleDollarSign,
-  Baby,
-  ChevronRight,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -35,173 +29,96 @@ const SERVICE_VISUAL = "https://private-us-east-1.manuscdn.com/sessionFile/9ODQp
 interface ServiceItem {
   icon: React.ElementType;
   title: string;
+  description: string;
   id: string;
 }
 
 interface ServiceGroup {
   label: string;
+  icon: React.ElementType;
+  description: string;
   items: ServiceItem[];
 }
 
 const serviceGroups: ServiceGroup[] = [
   {
     label: "保険",
+    icon: Shield,
+    description: "ライフステージに合わせた最適な保障プランをご提案。万が一に備え、大切な人を守ります。",
     items: [
-      { icon: Heart, title: "生命保険", id: "life-insurance" },
-      { icon: Shield, title: "損害保険", id: "non-life-insurance" },
+      { icon: Heart, title: "生命保険", description: "人生のリスクに備える生命保険のご提案", id: "life-insurance" },
+      { icon: Shield, title: "損害保険", description: "住まい・クルマ・事業のリスクをカバー", id: "non-life-insurance" },
     ],
   },
   {
     label: "不動産",
+    icon: Building2,
+    description: "資産形成から住まい探しまで、不動産のあらゆるニーズにワンストップで対応します。",
     items: [
-      { icon: TrendingUp, title: "投資用不動産", id: "investment-property" },
-      { icon: Home, title: "住宅（土地含む）", id: "housing" },
-      { icon: Key, title: "賃貸", id: "rental" },
+      { icon: TrendingUp, title: "投資用不動産", description: "長期的な資産形成をサポートする不動産投資", id: "investment-property" },
+      { icon: Home, title: "住宅（土地含む）", description: "理想のマイホーム・土地探しをトータル支援", id: "housing" },
+      { icon: Key, title: "賃貸", description: "ライフスタイルに合った賃貸物件のご紹介", id: "rental" },
     ],
   },
   {
     label: "ライフライン",
+    icon: Zap,
+    description: "毎月の固定費を最適化。暮らしのインフラをまるごと見直します。",
     items: [
-      { icon: Sun, title: "太陽光・蓄電池", id: "solar" },
-      { icon: Wifi, title: "通信回線", id: "telecom" },
-      { icon: Zap, title: "電気・ガス", id: "utility" },
-      { icon: Droplets, title: "ウォーターサーバー", id: "water" },
+      { icon: Sun, title: "太陽光・蓄電池", description: "再生可能エネルギーで家計と環境に貢献", id: "solar" },
+      { icon: Wifi, title: "通信回線", description: "最適な通信プランで快適なネット環境を", id: "telecom" },
+      { icon: Zap, title: "電気・ガス", description: "電力・ガスの乗り換えで光熱費を削減", id: "utility" },
+      { icon: Droplets, title: "ウォーターサーバー", description: "安心・安全な水を暮らしの中に", id: "water" },
     ],
   },
   {
     label: "キャリア・ビジネス支援",
+    icon: Briefcase,
+    description: "キャリアアップや新たな収入源の確保など、ビジネス面での成長をバックアップします。",
     items: [
-      { icon: Briefcase, title: "転職支援", id: "career" },
-      { icon: Users, title: "副業支援・ビジネスコミュニティ運営", id: "sidebiz" },
+      { icon: Briefcase, title: "転職支援", description: "あなたの強みを活かしたキャリアチェンジを支援", id: "career" },
+      { icon: Users, title: "副業支援・ビジネスコミュニティ運営", description: "新たな収入の柱を一緒に築く", id: "sidebiz" },
     ],
   },
 ];
-
-/* ─── Life‑event → service mapping ─── */
-
-interface LifeEvent {
-  icon: React.ElementType;
-  label: string;
-  serviceIds: string[];
-}
-
-const lifeEvents: LifeEvent[] = [
-  {
-    icon: GraduationCap,
-    label: "就職・転職",
-    serviceIds: ["career", "sidebiz", "life-insurance"],
-  },
-  {
-    icon: Truck,
-    label: "一人暮らし・引っ越し",
-    serviceIds: ["rental", "utility", "telecom", "water"],
-  },
-  {
-    icon: Gem,
-    label: "結婚・パートナーとの生活",
-    serviceIds: ["life-insurance", "non-life-insurance", "rental", "housing"],
-  },
-  {
-    icon: Building2,
-    label: "住宅購入",
-    serviceIds: [
-      "housing",
-      "solar",
-      "life-insurance",
-      "non-life-insurance",
-      "utility",
-      "telecom",
-    ],
-  },
-  {
-    icon: Baby,
-    label: "子育て・教育",
-    serviceIds: ["life-insurance", "non-life-insurance"],
-  },
-  {
-    icon: PiggyBank,
-    label: "資産形成・老後備え",
-    serviceIds: ["investment-property", "life-insurance"],
-  },
-  {
-    icon: CircleDollarSign,
-    label: "収入を増やしたい",
-    serviceIds: ["career", "sidebiz", "investment-property"],
-  },
-];
-
-/* Build a flat id→title map for quick lookup */
-const serviceMap = new Map<string, ServiceItem>();
-serviceGroups.forEach((g) => g.items.forEach((s) => serviceMap.set(s.id, s)));
 
 /* ─── Components ─── */
 
-function ServiceCard({
+function ServiceDetailCard({
   icon: Icon,
   title,
-  highlighted,
+  description,
 }: {
   icon: React.ElementType;
   title: string;
-  highlighted: boolean;
+  description: string;
 }) {
   return (
-    <div
-      className={`group relative p-5 md:p-6 border bg-white transition-all duration-500 h-full ${
-        highlighted
-          ? "border-[#84CBC8] shadow-[0_8px_40px_rgba(132,203,200,0.15)] scale-[1.03]"
-          : "border-gray-100 hover:border-[#84CBC8]/30 hover:shadow-[0_8px_40px_rgba(132,203,200,0.08)]"
-      }`}
-    >
-      <Icon
-        className={`mb-3 transition-transform duration-500 group-hover:scale-110 ${
-          highlighted ? "text-[#84CBC8]" : "text-[#84CBC8]/70"
-        }`}
-        size={24}
-        strokeWidth={1.5}
-      />
-      <h4 className="text-sm md:text-base font-display font-bold text-[#1A1A2E]/90 leading-snug">
-        {title}
-      </h4>
-    </div>
-  );
-}
-
-function LifeEventSelector({
-  activeId,
-  onSelect,
-}: {
-  activeId: string | null;
-  onSelect: (id: string | null) => void;
-}) {
-  return (
-    <div className="flex flex-wrap gap-2.5 md:gap-3">
-      {lifeEvents.map((evt) => {
-        const isActive = activeId === evt.label;
-        return (
-          <button
-            key={evt.label}
-            onClick={() => onSelect(isActive ? null : evt.label)}
-            className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-body transition-all duration-300 border ${
-              isActive
-                ? "bg-[#84CBC8] text-white border-[#84CBC8] shadow-md"
-                : "bg-white text-[#1A1A2E]/70 border-gray-200 hover:border-[#84CBC8]/50 hover:text-[#1A1A2E]"
-            }`}
-          >
-            <evt.icon size={16} strokeWidth={1.5} />
-            {evt.label}
-          </button>
-        );
-      })}
+    <div className="group relative bg-white border border-gray-100 p-6 md:p-8 hover:border-[#84CBC8]/30 hover:shadow-[0_8px_40px_rgba(132,203,200,0.08)] transition-all duration-500">
+      <div className="flex items-start gap-5">
+        {/* Icon circle */}
+        <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#84CBC8]/10 flex items-center justify-center group-hover:bg-[#84CBC8]/15 transition-colors duration-300">
+          <Icon
+            className="text-[#84CBC8] transition-transform duration-500 group-hover:scale-110"
+            size={26}
+            strokeWidth={1.5}
+          />
+        </div>
+        <div className="flex-1 min-w-0">
+          <h4 className="text-base md:text-lg font-display font-bold text-[#1A1A2E] mb-2">
+            {title}
+          </h4>
+          <p className="text-[#1A1A2E]/50 text-sm font-body leading-relaxed">
+            {description}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
 
 export default function ServiceSection() {
-  const [activeEvent, setActiveEvent] = useState<string | null>(null);
-
-  const activeLifeEvent = lifeEvents.find((e) => e.label === activeEvent);
-  const highlightedIds = new Set(activeLifeEvent?.serviceIds ?? []);
+  const [activeTab, setActiveTab] = useState(0);
 
   return (
     <section id="service" className="py-32 md:py-40 bg-[#FAFAFA] relative">
@@ -228,89 +145,99 @@ export default function ServiceSection() {
           />
         </AnimatedSection>
 
-        {/* ── Life Event Selector ── */}
-        <AnimatedSection className="mb-16 md:mb-20">
-          <p className="text-[#84CBC8] text-xs tracking-[0.3em] uppercase font-display font-medium mb-3">
-            Life Events
-          </p>
-          <h3 className="text-2xl md:text-3xl font-display font-bold text-[#1A1A2E] mb-3">
-            あなたのライフイベントから探す
-          </h3>
-          <p className="text-[#1A1A2E]/50 text-sm font-body mb-8">
-            ライフイベントを選ぶと、Unicaraが対応できるサービスがハイライトされます。
-          </p>
-          <LifeEventSelector activeId={activeEvent} onSelect={setActiveEvent} />
-
-          {/* Active event result message */}
-          <AnimatePresence mode="wait">
-            {activeLifeEvent && (
-              <motion.div
-                key={activeEvent}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
-                className="mt-6 flex items-start gap-2 text-sm text-[#1A1A2E]/70 font-body"
-              >
-                <ChevronRight
-                  size={16}
-                  className="text-[#84CBC8] mt-0.5 flex-shrink-0"
-                />
-                <span>
-                  <span className="font-bold text-[#1A1A2E]/90">
-                    「{activeEvent}」
-                  </span>
-                  に関連するサービス：
-                  {activeLifeEvent.serviceIds
-                    .map((id) => serviceMap.get(id)?.title)
-                    .filter(Boolean)
-                    .join(" / ")}
-                </span>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </AnimatedSection>
-
-        {/* ── Support Areas (grouped) ── */}
+        {/* ── Support Areas (Tab UI) ── */}
         <AnimatedSection>
           <p className="text-[#84CBC8] text-xs tracking-[0.3em] uppercase font-display font-medium mb-3">
             Support Areas
           </p>
-          <h3 className="text-2xl md:text-3xl font-display font-bold text-[#1A1A2E] mb-12">
+          <h3 className="text-2xl md:text-3xl font-display font-bold text-[#1A1A2E] mb-10 md:mb-14">
             Unicaraがサポートできる領域
           </h3>
         </AnimatedSection>
 
-        <div className="space-y-10">
-          {serviceGroups.map((group, gi) => (
-            <AnimatedSection key={group.label} delay={gi * 0.08}>
-              {/* Group label */}
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-xs tracking-[0.15em] uppercase font-display font-semibold text-[#84CBC8]">
-                  {group.label}
-                </span>
-                <div className="flex-1 h-px bg-[#84CBC8]/15" />
-              </div>
-
-              {/* Cards */}
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                {group.items.map((service) => (
-                  <motion.div
-                    key={service.id}
-                    layout
-                    transition={{ duration: 0.35, ease: "easeOut" }}
+        {/* Tab Buttons — 4 categories */}
+        <AnimatedSection delay={0.1}>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-10 md:mb-14">
+            {serviceGroups.map((group, index) => {
+              const isActive = activeTab === index;
+              const Icon = group.icon;
+              return (
+                <button
+                  key={group.label}
+                  onClick={() => setActiveTab(index)}
+                  className={`relative flex flex-col items-center gap-3 px-4 py-6 md:py-8 border-2 transition-all duration-400 ${
+                    isActive
+                      ? "bg-[#1A1A2E] border-[#1A1A2E] shadow-lg"
+                      : "bg-white border-gray-200 hover:border-[#84CBC8]/40 hover:shadow-md"
+                  }`}
+                >
+                  <div
+                    className={`w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-colors duration-300 ${
+                      isActive ? "bg-[#84CBC8]" : "bg-[#84CBC8]/10"
+                    }`}
                   >
-                    <ServiceCard
-                      icon={service.icon}
-                      title={service.title}
-                      highlighted={highlightedIds.has(service.id)}
+                    <Icon
+                      size={24}
+                      strokeWidth={1.5}
+                      className={isActive ? "text-white" : "text-[#84CBC8]"}
                     />
-                  </motion.div>
-                ))}
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
+                  </div>
+                  <span
+                    className={`text-sm md:text-base font-display font-bold tracking-wide transition-colors duration-300 ${
+                      isActive ? "text-white" : "text-[#1A1A2E]"
+                    }`}
+                  >
+                    {group.label}
+                  </span>
+                  {/* Active indicator */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="tab-indicator"
+                      className="absolute -bottom-[2px] left-1/4 right-1/4 h-[3px] bg-[#84CBC8]"
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </AnimatedSection>
+
+        {/* Tab Content — animated panel */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {/* Category description */}
+            <div className="mb-8 md:mb-10">
+              <p className="text-[#1A1A2E]/70 text-base md:text-lg font-body leading-relaxed max-w-2xl">
+                {serviceGroups[activeTab].description}
+              </p>
+            </div>
+
+            {/* Service cards grid */}
+            <div className="grid md:grid-cols-2 gap-4">
+              {serviceGroups[activeTab].items.map((service, i) => (
+                <motion.div
+                  key={service.id}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.08, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <ServiceDetailCard
+                    icon={service.icon}
+                    title={service.title}
+                    description={service.description}
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </AnimatePresence>
 
         {/* Disclaimer note */}
         <AnimatedSection>
