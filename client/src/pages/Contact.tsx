@@ -17,7 +17,6 @@ export default function Contact() {
     company: "",
     email: "",
     phone: "",
-    category: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -48,7 +47,6 @@ export default function Contact() {
           company: formData.company,
           email: formData.email,
           phone: formData.phone,
-          category: formData.category,
           message: formData.message,
         }),
       });
@@ -188,25 +186,6 @@ export default function Contact() {
                       placeholder="090-1234-5678"
                       className="w-full px-4 py-3 border border-gray-200 bg-white text-[#1A1A2E] font-body text-base focus:outline-none focus:border-[#84CBC8] transition-colors duration-300"
                     />
-                  </div>
-
-                  {/* お問い合わせ種別 */}
-                  <div>
-                    <label className="block text-sm font-display font-medium text-[#1A1A2E] mb-2">
-                      お問い合わせ種別
-                    </label>
-                    <select
-                      name="category"
-                      value={formData.category}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-200 bg-white text-[#1A1A2E] font-body text-base focus:outline-none focus:border-[#84CBC8] transition-colors duration-300 appearance-none"
-                    >
-                      <option value="">選択してください</option>
-                      <option value="サービスについて">サービスについて</option>
-                      <option value="保険のご相談">保険のご相談</option>
-                      <option value="採用について">採用について</option>
-                      <option value="その他">その他</option>
-                    </select>
                   </div>
 
                   {/* お問い合わせ内容 */}
